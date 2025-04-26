@@ -1,19 +1,55 @@
-let text = "";
+let Header = "";
+let Body="";
 
-document.getElementById('header-input').addEventListener('input', saveText);
+// let objArray=[{
+//   title:''
+// }];
+
+document.getElementById('header-input').addEventListener('input', saveHeader); // use input because it doesnt call the header function instantly like the keypress does
+// also keypress is old and is not used in most browsers these days
+
+document.getElementById('body-input').addEventListener('input', saveBody);
 
 
-function saveText(){
-  if(text!=''){
-    text = document.getElementById('header-input').value;
+function saveHeader(){ //logic for the header data to be stored
+
+  if(Header.length<=50){
+    if(Header!=""){ // if its empty itll just replace, else it appends to it.
+      Header = document.getElementById('header-input').value;
+    }
+    else{
+      Header += document.getElementById('header-input').value;
+    }
+    
+    localStorage.setItem('header-text',Header);
+    // console.log(Header); // test for the running for header, because js test cases are shite
+    document.getElementById('txt-test-cont').innerHTML = localStorage.getItem('header-text');
   }
   else{
-    text += document.getElementById('header-input').value;
+    alert('crossed the 50 word limit for headers, modify it or cry about it :)');
   }
-  
-  localStorage.setItem('header-text',text);
-  console.log(text);
-  document.getElementById('txt-test-cont').innerHTML = localStorage.getItem('header-text');
+}
+
+function saveBody() {
+  Body = document.getElementById('body-input').value;
+  localStorage.setItem('body-text', Body);
+  console.log(Body);
+  document.getElementById('txt-test-cont').innerHTML= localStorage.getItem('body-text');
 }
 
 
+//test text to add into the created element
+
+const testTxt= [{
+  title:'C++',
+  content:'shd code in cpp!!',
+  date: '20/12/05'
+}];
+
+
+document.getElementById('create-btn').addEventListener('click', ()=>{ // clicking the create button makes js to create a div that will store the boxes
+  const newBox= document.createElement('div');  
+  newBox.className="container-fluid boxes-wrapper";
+  newBox.style='display: grid; grid-template-columns: 1fr 1fr 1fr ';
+  newBox.appendChild(testTxt[0]);
+});
