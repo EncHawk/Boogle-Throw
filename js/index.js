@@ -11,7 +11,9 @@ document.getElementById('header-input').addEventListener('input', saveHeader); /
 document.getElementById('body-input').addEventListener('input', saveBody);
 
 
+
 function saveHeader(){ //logic for the header data to be stored
+
 
   if(Header.length<=50){
     if(Header!=""){ // if its empty itll just replace, else it appends to it.
@@ -48,8 +50,37 @@ const testTxt= [{
 
 
 document.getElementById('create-btn').addEventListener('click', ()=>{ // clicking the create button makes js to create a div that will store the boxes
+  
+  document.getElementById('body-input').value= '';
+  document.getElementById('header-input').value= '';
+  
+  testTxt.push({
+    title:Header,
+    content: Body,
+    date: '20/12/05'
+  });
+  
   const newBox= document.createElement('div');  
-  newBox.className="container-fluid boxes-wrapper";
-  newBox.style='display: grid; grid-template-columns: 1fr 1fr 1fr ';
-  newBox.appendChild(testTxt[0]);
+  newBox.className="container-fluid card";
+  // newBox.innerHTML=testTxt[0];
+
+  const iTitle = document.createElement('h3');
+  iTitle.className="card-inner-title";
+  iTitle.innerHTML=testTxt[1].title;
+
+  const iContent = document.createElement('p');
+  iContent.className="card-inner-content";
+  iContent.innerHTML=testTxt[1].content;
+
+  const iDate = document.createElement('p');
+  iDate.className="card-inner-date";
+  iDate.innerHTML=testTxt[1].date;
+
+
+  let cardHolder= document.getElementById('outer-wrapper');
+  newBox.appendChild(iTitle);
+  newBox.appendChild(iContent);
+  newBox.appendChild(iDate);
+  cardHolder.appendChild(newBox);
 });
+// error fix: the cardholder couldnt access the newBox since it was outside. added it inside therefore it can see the existense of newBox

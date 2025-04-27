@@ -3,7 +3,7 @@ body{
 }
 
 
-
+/* not using input for the body, discovered what sike shit textarea can do. ppl can resize nall h */
 input{
   color:rgb(184, 184, 184);
   padding: 5px 5px;
@@ -12,6 +12,23 @@ input{
   margin: 30px 10px;
 }
 input:focus{
+  color:white;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 35px rgba(118, 118, 118, 0.289);
+}
+
+
+textarea{
+  background-color: transparent;
+  color:rgb(184, 184, 184);
+  padding: 5px 5px;
+  margin: 30px 10px;
+  border:1px solid rgb(66, 66, 66);
+}
+textarea:focus{
   color:white;
   background-color: transparent;
   border: none;
@@ -39,8 +56,6 @@ input:focus{
   animation: infinite ease-in-out glow 5s;
 }
 
-
-
 @keyframes glow{
   0%{
     scale:1;
@@ -63,7 +78,40 @@ input:focus{
 }
 
 
-.boxes-wrapper{
-  display:block;
-  border: 3px solid red;
+.cards-container{
+  display:grid;
+  grid-template-columns: max-content;
+  /* border: 3px solid red; */
+}
+
+.card{
+  /* border: 1px solid rgb(102, 102, 102); */
+  background-color: rgb(32, 33, 36);
+  color:white;
+  box-shadow: 1px 1px 30px rgba(123, 123, 123, 0.548);
+  height: 200px;
+  width: 220px;
+  padding: 10px 15px;
+  overflow-y: auto;
+  transition : box-shadow .5s,  border  .5s;
+}
+.card:hover{
+  box-shadow: none;
+  border: 1px solid rgb(102, 102, 102);
+}
+
+.card-inner-title{
+  color:white;
+  margin: 4px 2px;
+}
+
+.card-inner-content{
+  color:white;
+  margin: 8px 10px;
+}
+
+.card-inner-date{
+  font-size:small;
+  color:gray;
+  margin: 8px 10px;
 }
