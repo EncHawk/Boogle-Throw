@@ -1,6 +1,10 @@
 body{
   background-color: rgb(32, 33, 36);
+  scrollbar-color: transparent rgb(95, 95, 95);
+  scrollbar-arrow-color: aqua;
 }
+
+
 
 
 /* not using input for the body, discovered what sike shit textarea can do. ppl can resize nall h */
@@ -17,7 +21,7 @@ input:focus{
   border: none;
   outline: none;
   border-radius: 5px;
-  box-shadow: 5px 5px 35px rgba(118, 118, 118, 0.289);
+  box-shadow: 5px 5px 35px rgba(95, 95, 95, 0.289);
 }
 
 
@@ -79,19 +83,31 @@ textarea:focus{
 
 
 .cards-container{
+  margin: 40px 05px;
   display:grid;
-  grid-template-columns: max-content;
+  grid-template-columns:  1fr 1fr 1fr;
+  gap:30px;
+  /* margin-bottom: 2px; */
   /* border: 3px solid red; */
+}
+
+@media (max-width:200px){
+ 
 }
 
 .card{
   /* border: 1px solid rgb(102, 102, 102); */
   background-color: rgb(32, 33, 36);
   color:white;
+  scrollbar-color: rgb(53, 0, 0) rgb(25, 29, 88);
+  
   box-shadow: 1px 1px 30px rgba(123, 123, 123, 0.548);
   height: 200px;
   width: 220px;
   padding: 10px 15px;
+
+
+  max-height: 300px;
   overflow-y: auto;
   transition : box-shadow .5s,  border  .5s;
 }
@@ -101,7 +117,7 @@ textarea:focus{
 }
 
 .card-inner-title{
-  color:white;
+  color:rgb(118, 118, 118);
   margin: 4px 2px;
 }
 

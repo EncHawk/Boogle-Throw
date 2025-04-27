@@ -10,11 +10,11 @@ document.getElementById('header-input').addEventListener('input', saveHeader); /
 
 document.getElementById('body-input').addEventListener('input', saveBody);
 
+// loading all the existing data to the index page from the local storage.
+// loadData();
 
 
 function saveHeader(){ //logic for the header data to be stored
-
-
   if(Header.length<=50){
     if(Header!=""){ // if its empty itll just replace, else it appends to it.
       Header = document.getElementById('header-input').value;
@@ -35,30 +35,43 @@ function saveHeader(){ //logic for the header data to be stored
 function saveBody() {
   Body = document.getElementById('body-input').value;
   localStorage.setItem('body-text', Body);
-  console.log(Body);
+  // console.log(Body); // to check what is being stored inside the body
   document.getElementById('txt-test-cont').innerHTML= localStorage.getItem('body-text');
 }
 
 
 //test text to add into the created element
 
-const testTxt= [{
-  title:'C++',
-  content:'shd code in cpp!!',
-  date: '20/12/05'
-}];
+const testTxt= []; // its not a test, i dont have the patience to fix the name. 
+// TODO: fix this name
+
+let counterVar=0;
 
 
 document.getElementById('create-btn').addEventListener('click', ()=>{ // clicking the create button makes js to create a div that will store the boxes
-  
-  document.getElementById('body-input').value= '';
-  document.getElementById('header-input').value= '';
-  
   testTxt.push({
     title:Header,
     content: Body,
     date: '20/12/05'
   });
+
+    
+  document.getElementById('body-input').value= '';
+  document.getElementById('header-input').value= '';
+  
+  
+  createCard(testTxt);
+
+  counterVar++; // increments the counter to access the next element in the array.
+
+
+  JSON.stringify(localStorage.setItem('user-data-array', testTxt));
+  console.log(testTxt);
+});
+// error fix: the cardholder couldnt access the newBox since it was outside. added it inside therefore it can see the existense of newBox
+
+
+function createCard(testTxt){
   
   const newBox= document.createElement('div');  
   newBox.className="container-fluid card";
@@ -66,21 +79,63 @@ document.getElementById('create-btn').addEventListener('click', ()=>{ // clickin
 
   const iTitle = document.createElement('h3');
   iTitle.className="card-inner-title";
-  iTitle.innerHTML=testTxt[1].title;
+  iTitle.innerHTML=testTxt[counterVar].title;
 
   const iContent = document.createElement('p');
   iContent.className="card-inner-content";
-  iContent.innerHTML=testTxt[1].content;
+  iContent.innerHTML=testTxt[counterVar].content;
 
   const iDate = document.createElement('p');
   iDate.className="card-inner-date";
-  iDate.innerHTML=testTxt[1].date;
+  iDate.innerHTML=testTxt[counterVar].date;
 
+  
 
   let cardHolder= document.getElementById('outer-wrapper');
   newBox.appendChild(iTitle);
   newBox.appendChild(iContent);
   newBox.appendChild(iDate);
   cardHolder.appendChild(newBox);
-});
-// error fix: the cardholder couldnt access the newBox since it was outside. added it inside therefore it can see the existense of newBox
+
+
+}
+
+function addData(dataArray){
+  dataArray.forEach((object)=>{
+    const newBox= document.createElement('div');  
+    newBox.className="container-fluid card";
+    // newBox.innerHTML=testTxt[0];
+
+    const iTitle = document.createElement('h3');
+    iTitle.className="card-inner-title";
+    iTitle.innerHTML=object.title;
+
+    const iContent = document.createElement('p');
+    iContent.className="card-inner-content";
+    iContent.innerHTML=object.content;
+
+    const iDate = document.createElement('p');
+    iDate.className="card-inner-date";
+    iDate.innerHTML=object.date;
+
+    
+
+    let cardHolder= document.getElementById('outer-wrapper');
+    newBox.appendChild(iTitle);
+    newBox.appendChild(iContent);
+    newBox.appendChild(iDate);
+    cardHolder.appendChild(newBox);
+  });
+}
+
+function loadData(){
+  if (localStorage.getItem('user-data-array')){
+    const dataArray = JSON.parse(localStorage.getItem('user-data-array'));
+    console.log(dataArray +"from load data");
+    addData(dataArray);
+
+  }
+  else{
+    document.getElementById('outer-wrapper').innerHTML = `No content to load, gimme somthing to store daddy! im hunrgy :O`;
+  }
+}
