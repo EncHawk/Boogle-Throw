@@ -54,7 +54,7 @@ document.getElementById('create-btn').addEventListener('click', ()=>{ // clickin
   userResponse.push({
     title:Header,
     content: Body,
-    date: '20/12/05'
+    date: getTodayDate()
   });
   localStorage.setItem('user-data-array', JSON.stringify(userResponse));
     
@@ -69,7 +69,7 @@ document.getElementById('create-btn').addEventListener('click', ()=>{ // clickin
 
 function createCard(userResponse){
   let size = userResponse.length;
-  let object= userResponse[size-1];
+  let object= userResponse[size-1]; // just checks the last element in the responses array to create new card for just the last object
   
   const newBox= document.createElement('div');  
   newBox.className="container-fluid card";
@@ -134,6 +134,14 @@ function loadData(){
   else{
     alert('ntg to retrieve from the local storage, feed me daddy im hungry :)');
   }
+}
+
+function getTodayDate() { // gpt function to get the date in a specific format
+  const today = new Date();
+  const dd = String(today.getDate()).padStart(2, '0');
+  const mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0
+  const yyyy = today.getFullYear();
+  return `${dd}/${mm}/${yyyy}`;
 }
 
 // function clearFn(){

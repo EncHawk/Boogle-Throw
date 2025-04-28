@@ -21,7 +21,7 @@ input:focus{
   border: none;
   outline: none;
   border-radius: 5px;
-  box-shadow: 5px 5px 35px rgba(95, 95, 95, 0.289);
+  box-shadow: 5px 5px 35px rgba(157, 157, 157, 0.289);
 }
 
 
@@ -38,7 +38,7 @@ textarea:focus{
   border: none;
   outline: none;
   border-radius: 5px;
-  box-shadow: 5px 5px 35px rgba(118, 118, 118, 0.289);
+  box-shadow: 5px 5px 35px rgba(157, 157, 157, 0.289);
 }
 
 .outer-container{
@@ -108,6 +108,7 @@ textarea:focus{
 
 
   max-height: 300px;
+  overflow-x: auto;
   overflow-y: auto;
   transition : box-shadow .5s,  border  .5s;
 }
