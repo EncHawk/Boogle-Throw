@@ -9,11 +9,16 @@ body{
 
 /* not using input for the body, discovered what sike shit textarea can do. ppl can resize nall h */
 input{
+  display: block;
   color:rgb(184, 184, 184);
   padding: 5px 5px;
   background-color: transparent;
   border:1px solid rgb(66, 66, 66);
+  border-radius: 4px;
   margin: 30px 10px;
+
+
+  /* max-width: 40vh; */
 }
 input:focus{
   color:white;
@@ -24,13 +29,21 @@ input:focus{
   box-shadow: 5px 5px 35px rgba(157, 157, 157, 0.289);
 }
 
+input , textarea{
+  width: clamp(250px, 400px, 600px);                                                    
+}
+
 
 textarea{
+  display: block;
   background-color: transparent;
   color:rgb(184, 184, 184);
   padding: 5px 5px;
   margin: 30px 10px;
   border:1px solid rgb(66, 66, 66);
+  border-radius: 4px;
+
+  /* max-width: 40vh; */
 }
 textarea:focus{
   color:white;
@@ -43,6 +56,7 @@ textarea:focus{
 
 .outer-container{
   overflow:hidden;
+  margin-bottom: 0px;
 }
 
 #txt-test-cont{
@@ -57,7 +71,7 @@ textarea:focus{
   2px 2px 20px rgb(254,254,254),
   3px 3px 30px rgb(250,250,250);
 
-  animation: infinite ease-in-out glow 5s;
+  animation: infinite ease-in-out glow 8s;
 }
 
 @keyframes glow{
@@ -81,6 +95,13 @@ textarea:focus{
   }
 }
 
+.input-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
 
 .cards-container{
   margin: 40px 05px;
@@ -92,8 +113,23 @@ textarea:focus{
 }
 
 @media (max-width:200px){
- 
+ .cards-container{
+  grid-template-columns:  1fr ;
+ }
 }
+
+@media (min-width:500px){
+  .cards-container{
+   grid-template-columns:  1fr 1fr ;
+  }
+ }
+
+ @media (min-width:700px){
+  .cards-container{
+   grid-template-columns:  1fr 1fr 1fr ;
+  }
+ }
+ 
 
 .card{
   /* border: 1px solid rgb(102, 102, 102); */
@@ -105,12 +141,12 @@ textarea:focus{
   height: 200px;
   width: 220px;
   padding: 10px 15px;
-
+  cursor:pointer;
 
   max-height: 300px;
   overflow-x: auto;
   overflow-y: auto;
-  transition : box-shadow .5s,  border  .5s;
+  transition : box-shadow .8s,  border  .8s;
 }
 .card:hover{
   box-shadow: none;

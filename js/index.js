@@ -23,9 +23,9 @@ function saveHeader(){ //logic for the header data to be stored
       Header += document.getElementById('header-input').value;
     }
     
-    localStorage.setItem('header-text',Header);
+    // localStorage.setItem('header-text',Header);
     // console.log(Header); // test for the running for header, because js test cases are shite
-    document.getElementById('txt-test-cont').innerHTML = localStorage.getItem('header-text');
+    // document.getElementById('txt-test-cont').innerHTML = localStorage.getItem('header-text');
   }
   else{
     alert('crossed the 50 word limit for headers, modify it or cry about it :)');
@@ -34,9 +34,9 @@ function saveHeader(){ //logic for the header data to be stored
 
 function saveBody() {
   Body = document.getElementById('body-input').value;
-  localStorage.setItem('body-text', Body);
+  // localStorage.setItem('body-text', Body);
   // console.log(Body); // to check what is being stored inside the body
-  document.getElementById('txt-test-cont').innerHTML= localStorage.getItem('body-text');
+  // document.getElementById('txt-test-cont').innerHTML= localStorage.getItem('body-text');
 }
 
 
@@ -144,6 +144,11 @@ function getTodayDate() { // gpt function to get the date in a specific format
   return `${dd}/${mm}/${yyyy}`;
 }
 
-// function clearFn(){
-//   localStorage.clear();
-// }
+document.getElementById('clear-btn').addEventListener('click', ()=>{
+  localStorage.clear();
+  location.reload();
+});
+
+function clearFn(){
+  
+}
