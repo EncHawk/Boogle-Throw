@@ -29,11 +29,6 @@ input:focus{
   box-shadow: 5px 5px 35px rgba(157, 157, 157, 0.289);
 }
 
-input , textarea{
-  width: clamp(250px, 400px, 600px);                                                    
-}
-
-
 textarea{
   display: block;
   background-color: transparent;
