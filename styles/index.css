@@ -63,6 +63,7 @@ textarea:focus{
 .bunch-ofwords{
   margin-top: 10px;
   color:white;
+  font-weight: 300;
   text-shadow:  1px 1px 5px rgb(255, 255, 255),
   1px 1px 10px rgb(133, 133, 133),
   2px 2px 15px rgb(250,250,250);
@@ -71,7 +72,6 @@ textarea:focus{
 .app-title{
   margin-top: 10px;
   color:white;
-  font-weight: 300;
   text-shadow:  1px 1px 10px rgb(255, 255, 255),
   2px 2px 20px rgb(254,254,254),
   3px 3px 30px rgb(250,250,250);
