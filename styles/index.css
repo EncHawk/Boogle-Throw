@@ -75,7 +75,7 @@ textarea:focus{
   1px 1px 8px rgb(133, 133, 133),
   2px 2px 10px rgb(254, 245, 118);
   /* max-width: clamp(500px, 100px, 200px); */
-  font-size: clamp(30px, 50px, 60px);
+  font-size: clamp(15px, 25px, 30px);
 } 
 
 .app-title{
@@ -85,7 +85,7 @@ textarea:focus{
   text-shadow:  1px 1px 10px rgb(255, 255, 255),
   2px 2px 20px rgb(254,254,254),
   3px 3px 30px rgb(250,250,250);
-  font-size: clamp(30px, 50px, 60px);
+  font-size: clamp(15px, 25px, 30px);
 
   /* max-width: clamp(500px, 200px, 100px); */
   animation: infinite ease-in-out glow 8s;
