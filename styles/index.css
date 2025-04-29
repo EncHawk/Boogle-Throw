@@ -17,6 +17,7 @@ input{
   border-radius: 4px;
   margin: 30px 10px;
 
+  min-width: clamp(200px, 350px, 450px);
 
   /* max-width: 40vh; */
 }
@@ -37,6 +38,7 @@ textarea{
   margin: 30px 10px;
   border:1px solid rgb(66, 66, 66);
   border-radius: 4px;
+  min-width: clamp(200px, 350px, 450px);
 
   /* max-width: 40vh; */
 }
@@ -58,10 +60,18 @@ textarea:focus{
   color:white;
 }
 
+.bunch-ofwords{
+  margin-top: 10px;
+  color:white;
+  text-shadow:  1px 1px 5px rgb(255, 255, 255),
+  1px 1px 10px rgb(133, 133, 133),
+  2px 2px 15px rgb(250,250,250);
+}
 
 .app-title{
   margin-top: 10px;
   color:white;
+  font-weight: 300;
   text-shadow:  1px 1px 10px rgb(255, 255, 255),
   2px 2px 20px rgb(254,254,254),
   3px 3px 30px rgb(250,250,250);
@@ -90,6 +100,13 @@ textarea:focus{
   }
 }
 
+.button-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .input-wrapper{
   display: flex;
   justify-content: center;
@@ -113,13 +130,13 @@ textarea:focus{
  }
 }
 
-@media (min-width:500px){
+@media (max-width:500px){
   .cards-container{
-   grid-template-columns:  1fr 1fr ;
+   grid-template-columns:  1fr 1fr;
   }
  }
 
- @media (min-width:700px){
+ @media (min-width:850px){
   .cards-container{
    grid-template-columns:  1fr 1fr 1fr ;
   }
