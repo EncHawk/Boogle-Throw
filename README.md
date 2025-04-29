@@ -14,7 +14,7 @@ unique features that i need to bring in:
     feedback - i can listen to your issues and try my best to fix it. 
 
 future features to push() :
-    database integration
-    better ui
-    image integration
-    add bg customisation
+                database integration
+                better ui
+                image integration
+                add bg customisation
