@@ -51,16 +51,24 @@ userResponse.push(...storedData); // ... allows the unpacking of elements inside
 
 
 document.getElementById('create-btn').addEventListener('click', ()=>{ // clicking the create button makes js to create a div that will store the boxes
-  userResponse.push({
-    title:Header,
-    content: Body,
-    date: getTodayDate()
-  });
-  localStorage.setItem('user-data-array', JSON.stringify(userResponse));
+  
+  if(Header.length>0 || Body.length>0){
+     userResponse.push({
+      title:Header,
+      content: Body,
+      date: getTodayDate()
+    });
+    localStorage.setItem('user-data-array', JSON.stringify(userResponse));
     
-  document.getElementById('body-input').value= '';
-  document.getElementById('header-input').value= '';
-  createCard(userResponse);
+    document.getElementById('body-input').value= '';
+    document.getElementById('header-input').value= '';
+    createCard(userResponse);
+  }
+  else{
+    alert('fill the boxes before creating a new container :)');
+  }
+ 
+ 
   // counterVar++; // increments the counter to access the next element in the array.
   // console.log(userResponse);
 });

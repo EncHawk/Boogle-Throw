@@ -1,7 +1,11 @@
 body{
   background-color: rgb(32, 33, 36);
   scrollbar-color: transparent rgb(95, 95, 95);
-  scrollbar-arrow-color: aqua;
+  scrollbar-arrow-color: aqua rgb(44, 44, 44);
+}
+::selection{
+  background-color: rgb(199, 206, 0);
+  color:black;
 }
 
 
@@ -57,13 +61,32 @@ textarea:focus{
   box-shadow: 5px 5px 35px rgba(157, 157, 157, 0.289);
 }
 
+.button-wrapper{
+  display: inline-block;  /* Keeps it in flow without layout issues */
+  transform-origin: center;
+}
+
+#create-btn ,  #clear-btn{
+  font-weight:550;
+  transition: background-color .8s , color .8s;
+} 
+#create-btn:hover{
+  background-color: transparent;
+  color:yellow;
+  zoom:1.1;
+  animation: jump 1s  ease-in-out ;
+}
+#clear-btn:hover{
+  background-color: transparent;
+  color:yellow;
+  zoom:1.1;
+  animation: shake 1s ease-in-out;
+}
+
+
 .outer-container{
   overflow:hidden;
   margin-bottom: 0px;
-}
-
-#txt-test-cont{
-  color:white;
 }
 
 .bunch-ofwords{
@@ -89,6 +112,23 @@ textarea:focus{
 
   /* max-width: clamp(500px, 200px, 100px); */
   animation: infinite ease-in-out glow 8s;
+}
+
+@keyframes jump {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes shake{
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
 }
 
 @keyframes glow{
@@ -134,6 +174,7 @@ textarea:focus{
   gap:30px;
   /* margin-bottom: 2px; */
   /* border: 3px solid red; */
+
 }
 
 @media (max-width:500px) and (min-width:100px){
@@ -162,7 +203,7 @@ textarea:focus{
   /* border: 1px solid rgb(102, 102, 102); */
   background-color: rgb(32, 33, 36);
   color:white;
-  scrollbar-color: rgb(53, 0, 0) rgb(25, 29, 88);
+  scrollbar-color: rgb(124, 124, 0) rgb(22, 22, 22);
   
   box-shadow: 1px 1px 30px rgba(123, 123, 123, 0.548);
   height: 200px;
