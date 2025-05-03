@@ -69,6 +69,8 @@ document.getElementById('create-btn').addEventListener('click', ()=>{ // clickin
   
   Body= '';
   Header= '';
+  document.getElementById('header-input').value='';
+  document.getElementById('body-input').value='';
  
   // counterVar++; // increments the counter to access the next element in the array.
   // console.log(userResponse);
