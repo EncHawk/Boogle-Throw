@@ -60,14 +60,15 @@ document.getElementById('create-btn').addEventListener('click', ()=>{ // clickin
     });
     localStorage.setItem('user-data-array', JSON.stringify(userResponse));
     
-    document.getElementById('body-input').value= '';
-    document.getElementById('header-input').value= '';
+    
     createCard(userResponse);
   }
   else{
     alert('fill the boxes before creating a new container :)');
   }
- 
+  
+  Body= '';
+  Header= '';
  
   // counterVar++; // increments the counter to access the next element in the array.
   // console.log(userResponse);
@@ -153,10 +154,10 @@ function getTodayDate() { // gpt function to get the date in a specific format
 }
 
 document.getElementById('clear-btn').addEventListener('click', ()=>{
-  localStorage.clear();
-  location.reload();
+  setTimeout(()=>{clearFn()},650);
 });
 
 function clearFn(){
-  
+  localStorage.clear();
+  location.reload();
 }

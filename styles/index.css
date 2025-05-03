@@ -73,14 +73,12 @@ textarea:focus{
 #create-btn:hover{
   background-color: transparent;
   color:yellow;
-  zoom:1.1;
   animation: jump 1s  ease-in-out ;
 }
 #clear-btn:hover{
   background-color: transparent;
   color:yellow;
-  zoom:1.1;
-  animation: shake 1s ease-in-out;
+  animation: shake  normal 1s ease-in-out;
 }
 
 
@@ -124,11 +122,13 @@ textarea:focus{
 }
 
 @keyframes shake{
-  0% { transform: translateX(0); }
+  0% { transform: translateX(0);
+  scale:1; }
   25% { transform: translateX(-5px); }
   50% { transform: translateX(5px); }
   75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
+  100% { transform: translateX(0); scale:1;}
+  
 }
 
 @keyframes glow{
