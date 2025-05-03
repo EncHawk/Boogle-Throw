@@ -154,7 +154,8 @@ function getTodayDate() { // gpt function to get the date in a specific format
 }
 
 document.getElementById('clear-btn').addEventListener('click', ()=>{
-  setTimeout(()=>{clearFn()},650);
+  localStorage.clear();
+  location.reload();
 });
 
 function clearFn(){
