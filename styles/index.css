@@ -1,7 +1,7 @@
 body{
-  background-color: rgb(32, 33, 36);
+  background-color: rgb(34, 34, 34);
   scrollbar-color: transparent rgb(95, 95, 95);
-  scrollbar-arrow-color: aqua rgb(44, 44, 44);
+  scrollbar-color: aqua rgb(44, 44, 44);
 }
 ::selection{
   background-color: rgb(199, 206, 0);
@@ -176,6 +176,14 @@ textarea:focus{
   /* border: 3px solid red; */
 
 }
+.flash-div{
+  display:block;
+  position: absolute;
+}
+
+.display-bigger{
+  
+}
 
 @media (max-width:500px) and (min-width:100px){
  .cards-container{
@@ -199,40 +207,9 @@ textarea:focus{
  }
  
 
-.card{
-  /* border: 1px solid rgb(102, 102, 102); */
-  background-color: rgb(32, 33, 36);
-  color:white;
-  scrollbar-color: rgb(124, 124, 0) rgb(22, 22, 22);
-  
-  box-shadow: 1px 1px 30px rgba(123, 123, 123, 0.548);
-  height: 200px;
-  width: 220px;
-  padding: 10px 15px;
-  cursor:pointer;
+ .bg-mnt-img{
+  max-width: 100vh;
+  z-index:-1;
+  position: fixed;
+ }
 
-  max-height: 300px;
-  overflow-x: auto;
-  overflow-y: auto;
-  transition : box-shadow .8s,  border  .8s;
-}
-.card:hover{
-  box-shadow: none;
-  border: 1px solid rgb(102, 102, 102);
-}
-
-.card-inner-title{
-  color:rgb(118, 118, 118);
-  margin: 4px 2px;
-}
-
-.card-inner-content{
-  color:white;
-  margin: 8px 10px;
-}
-
-.card-inner-date{
-  font-size:small;
-  color:gray;
-  margin: 8px 10px;
-}
